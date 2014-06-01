@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>New Request</title>
+</head>
+<body>
+	<h1> File a request</h1>
+	<form action="/add_request/" method="post" id="testingrequest_form" enctype="multipart/form-data">
+		
+		{% if filed %}
+			<h3>Successfully Filed!</h3>
+			<a href="/index/pjstaff/"> Return to Homepage!</a>
+		{% else%}
+			{% csrf_token %}
+			{{form.as_ul}}
+			<hr>
+			<input type="submit" name="submit" value="File This Testing Request">
+		{% endif %}
+	</form>
+	<hr>
+	<a href="/index/pjstaff/"> Return</a> <br>
+	<a href="/logout/">Logout</a>
+</body>
+</html>

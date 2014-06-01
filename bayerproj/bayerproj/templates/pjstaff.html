@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Project Staff</title>
+</head>
+<body>
+	<h5>This is the homepage for Project Staffs, <strong> {{up}}. </strong></h5>
+	<hr>
+	<a href="/add_request/">File a New Testing Request</a>
+	<hr>
+	<!-- Show Request Histroy -->
+	<h4>Request History</h4>
+	<!-- {{RequestHistroy}} -->
+	{% if RequestHistroy %}
+		<ul>
+			{% if RequestHistroy %}
+				{% for item in RequestHistroy %}
+					<li> 
+						{{item.pk}}: {{item.requester}} @ {{item.date}} {{item.status}} 
+							{% ifnotequal item.status 'Deleted' %}
+								<a href="/del_request/{{item.pk}}/ "> Delete it.</a>
+								<!-- <a href="/index/pjstaff"> Delete it.</a> -->
+							{% endifnotequal %}
+						<ul> 
+							{% for rq in item.item.all%}
+							<li>{{rq}} </li>
+							{% endfor %}
+						</ul>
+						
+					</li>
+				{% endfor%}
+			{% else %}
+				<h5> There is no request waiting.</h5>				
+			{% endif%}
+
+		</ul>
+	{% else %}
+		<strong>No request found.</strong>
+	{% endif%}
+	<hr>
+	<a href="/logout/">Logout</a>
+
+</body>
+</html>

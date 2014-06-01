@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Delete Request</title>
+</head>
+<body>
+	{{ Errors.Deleted }}
+	<hr>
+	{{item.pk}}: {{item.requester}} @ {{item.date}} {{item.status}}
+
+	<hr>	
+	<a href="/index/pjstaff/"> Return</a> <br>
+	<a href="/logout/">Logout</a>
+</body>
+</html>

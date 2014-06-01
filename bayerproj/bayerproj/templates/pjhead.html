@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Project Head</title>
+</head>
+<body>
+	<h2>Project Head, {{up.user}}  </h2>
+	<li>BU: {{up.bu}} </li>
+	<li>Title: {{up.title}} </li>
+	<hr>
+	<!-- <li>{{up.user}}  </li> -->
+	<h3>Staff Information</h3>
+	{% for key, value in RequestHistoySummary.items %}
+		<li>
+			{{key}}:
+				<ul>
+					{%for tr, times in value.items %}
+						{{tr}}:{{times}} <br>
+					{% endfor%}
+				</ul>
+		</li>
+	{% endfor%}
+	<hr>
+	<h3>Ongoing tests Information</h3>
+
+	{% for key, value in PjList.items %}
+		<li>
+			{{key}}:
+				<ul>
+					{% if value %}
+						{%for tr in value %}
+							{{tr.requester}} @ {{tr.date_action|date:"Y-M-j G:i"}} 
+								{% ifequal  tr.status 'Waiting List' %}
+									<a href="/del_request/{{tr.pk}}/"> Deleted it.</a>
+								{% endifequal %}
+							<br>
+							{% for x in tr.item.all%}
+								<ul>
+									<li>{{x}} <br></li>
+								</ul>							
+							{% endfor%}
+						{% endfor%}
+					{% else %}
+						<strong>None</strong>
+					{% endif%}
+				</ul>
+		</li>
+	{% endfor%}
+
+	<hr>
+	<p>Downloadable File</p>	
+	<hr>
+	<a href="/logout/"> Logout </a>
+</body>
+</html>

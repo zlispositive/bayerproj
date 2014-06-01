@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bayer Material Science Center</title>
+</head>
+<body>
+	<h1> Register with BMSC</h1>
+
+	{% if registered %}
+
+	BMSC: <strong> Thank you for the registering!</strong><br>
+	<a href="/login/"> Return to the homepage </a> 
+
+	{% else %}
+
+	BMSC: <strong> Register here, please! </strong>
+
+	<form action="/register/" id="user_form" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<h3>
+			<strong>Basic Info</strong>
+			{{ user_form.as_p }}
+
+		</h3>		
+		<hr>
+		<h3>
+			<strong>More Info</strong>
+			{{ profile_form.as_p }}
+
+		</h3>
+		<hr>
+<!-- 		<ul>
+		'A': 'boss',
+		'B': 'tghead',
+		'C': 'pjhead',
+		'D': 'pjstaff',
+		'E': 'tgstaff',
+		</ul> -->
+
+		<input type="submit" name="submit" value=" Register "/>
+		<hr>
+		<a href="/login/"> Already Register? Login Here </a> 
+	</form>
+	{% endif %}
+</body>
+</html>
+<!-- <html>
+	<head> Regist Yourself</head>
+	<body>
+		<form method = "post" enctype="multipart/form-data">
+			{{ uf.as_p }}
+			<input type="submit" value="regist"/>
+		</form>
+	</body>
+</html> -->

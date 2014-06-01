@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> Welcome to Bayer Materical Science Center</title>
+</head>
+<body>
+
+	<!-- <h1> MSC says Hi</h1> -->
+
+	{% if user.is_authenticated %}
+		<h1> {{category}} </h1> 
+		<!-- 20140502-2349 -->
+		<h1>Bayer Material Science says Hi, {{rank}} {{user.username}}!</h1><br>
+		
+<!-- 		{% if up.rank == "A" %}
+			<h2>
+				Level {{up.rank}} Agent, Good Day! How can I be of your service?
+			</h2>
+		{% endif %}
+
+		{% if up.rank == "B"%}
+			<h2>
+				Level {{up.rank}} Agent, Good Day! Manage some testing today?
+			</h2>
+		{% endif %}
+
+		{% if up.rank == "C"%}
+			<h2>
+				Level {{up.rank}} Agent, Good Day! Check some testing today?
+			</h2>
+		{% endif %}
+
+		{% if up.rank == "D"%}
+			<h2>
+				Level {{up.rank}} Agent, Good Day! File some testing today?
+			</h2>
+		{% endif %}
+
+		{% if up.rank == "E"%}
+			<h2>
+				Level {{up.rank}} Agent, Good Day! Tackle some testing today?
+			</h2>
+		{% endif %} -->
+
+	{% else %}
+		<h1>Bayer Material Science says Hi!</h1>
+	{% endif%}
+
+
+	{% if userprofiles %}
+		<ul>
+			{% for userprofile in userprofiles %}
+			<li> {{ userprofile}} </li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<strong> There are not memembers yet.</strong>
+	{% endif %}
+
+	<ul>
+		{% for ta in tas%}
+			<li>
+				{{ ta }}
+			</li>
+		{% endfor %}
+	</ul>
+	<a href="/logout/">Logout</a>
+	<br>
+	<a href="/about/">About</a>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Testing Group Staff</title>
+</head>
+<body>
+	<h5>This is the homepage for Testing Group Staff,{{up}} </h5>
+	<hr>
+	<h4>Completed List</h4>
+		{% if CompletedList %}
+		<ul>
+			{% for item in CompletedList %}
+				<li>
+					<a href="/requestinfo/{{ item.pk }}/"> {{item.pk}}: {{item.requester}} @ {{item.date}} {{item.status}}  </a>
+				</li>
+			{% endfor%}
+		</ul>
+		{% else %}
+			<strong> There is no request completed.</strong>
+		{% endif%}
+	<hr>
+	<h4> Processing List</h4>
+		{% if ProcessingList %}
+			{% for item in ProcessingList %}
+				<li>
+					<a href="/processing/{{ item.pk }}/"> {{item.pk}}: {{item.requester}} @ {{item.date}} {{item.status}}  </a>
+				</li>
+			{% endfor %}
+		{% else %}
+			<strong> There is no request undertaken.</strong>
+		{% endif %}
+	<hr>
+	<h4>Waiting List</h4>
+	{% if WaitingList %}
+		<ul>
+			{% for item in WaitingList %}
+				<li>
+					<a href="/tackle_request/{{item.pk}}/"> {{item.pk}}: {{item.requester}} @ {{item.date}} {{item.status}}  </a>
+				<!-- <a href="/tackle_request/{{ item.pk }}/"> {{item.pk}}: {{item.requester}} @ {{item.date}} {{item.status}}  </a> -->
+				</li>
+			{%endfor%}
+		</ul>
+	{% else %}
+		<strong> There is no request waiting. </strong>
+	{% endif%}
+	<hr>
+	<h4>Deleted List</h4>
+
+	{% if DeletedList %}
+		<ul>
+			{% for item in DeletedList %}
+				<li>
+					<a href="/requestinfo/{{ item.pk }}/"> {{item.pk}}: {{item.requester}} @ {{item.date}} {{item.status}}  </a>
+				</li>
+			{%endfor%}
+		</ul>
+	{% else %}
+		<strong> There is no request waiting. </strong>
+	{% endif%}
+
+	<!-- <hr> -->
+<!-- 	<a href="/tackle_request/">Tackle some requests!</a> -->
+	<hr>
+	<a href="/logout/">Logout</a>
+</body>
+</html>

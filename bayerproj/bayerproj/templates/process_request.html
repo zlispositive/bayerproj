@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Processing Request</title>
+</head>
+<body>
+	<h2>Processing Request</h2><br>
+	<p>
+		<strong> There should be a timer here. </strong>
+	</p>
+	<div>
+		Lastet Action Time: {{RequestInfo.date_action}}
+	</div>
+
+	<hr>
+	<h3>List of Information</h3>
+	
+	{{ListNumber}}
+	{{RequestInfo.status}}
+	
+
+	<ul> 
+		{% for rq in RequestInfo.item.all%}
+				<li>{{rq}} </li>
+		{% endfor %}
+	</ul>
+
+	<ul>
+		<li>Email: {{RequestInfo.email}}</li>
+		<li>Statue: {{RequestInfo.status}} </li>
+		<li>Comment:{{RequestInfo.comment}}</li>
+	</ul>
+
+	{%if cbcindex%}
+		
+	{% endif%}		
+	<hr>
+	<h3>Action</h3>
+		<li>
+			<a href="/complete_request/{{ListNumber}}/ ">Completed</a>
+
+		</li>	
+	<hr>
+	<a href="/index/tgstaff/"> Return </a>	
+	<br>
+	<a href="/logout/"> Logout </a>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bayer Material Science Center</title>
+</head>
+
+<body>
+	<h1> Login to Material Science Center</h1>	
+
+	<form action="/login/" id="login_form" method="post">
+		{% csrf_token %}
+		Username: <input type="text" name="username" value="" size="50" />
+		<br />
+		Password: <input type="password" name="password" value="" size="50" />
+		<br />
+
+		<input type="submit" value="submit"/>
+		<br />
+		<br />
+		<br />
+		<a href="/register/"><strong>Register Here! </strong></a>
+	</form>
+</body>
+</html>

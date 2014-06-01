@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Request Info</title>
+</head>
+<body>
+	<h2>Request Information</h2>
+	{% if ChosenItem %}
+		<!-- {{ ChosenItem.requester }} -->
+		{% for item in ChosenItem %}
+					<li> 
+						{{item.requester}} @ {{item.date}} {{item.status}}
+						<ul> 
+							{% for rq in item.item.all%}
+							<li>{{rq}} </li>
+							{% endfor %}
+						</ul>
+						<li>Comment:{{item.comment}}</li>
+						<li>Email: {{item.email}}</li>
+						<li>Statue: {{item.status}} </li>
+					</li>
+					<hr>
+					<h2>Action</h2>
+	
+					<li>
+						<a href="/processing/{{item.pk}}/ ">Begain Processing</a>
+					</li>
+					
+					<br>
+
+
+
+				{% endfor%}
+	{% else %}
+		<h3>Error: no request information.</h3>
+	{% endif %}
+	
+	
+
+	
+	<hr>
+	<a href="/index/tgstaff/">Return</a><br>
+	<a href="/logout/">Logout</a>
+</body>
+</html>

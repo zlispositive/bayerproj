@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Testing Group Head</title>
+</head>
+<body>
+	<h2>Testing Request Summary </h2>
+	<hr>
+		<!-- {{RequesterCounter}} -->
+<!-- 		{% for key in RequesterCounter %}
+			
+			<li>
+				{{ key }} : {{key2}}
+			</li>
+		{% endfor %} -->
+<!-- 		<span style="color: #000000;">
+			{% for key,value in RequesterCounter.items %}
+ 				<tr class="{% cycle 'altrow' '' %}">			
+   				<td>{{ key }}</td>			
+  				<td>{{ value }}</td>		  
+  			</tr>		  
+			{% endfor %}</span> -->
+		<p>Count based on Requester</p>
+		{% for key, value in RequesterCounter.items %}
+			<li>
+				{{key}}:
+				{{value}} 
+			</li>
+		{% endfor%}
+		<hr>
+		<p>Count based on Date</p>
+
+
+		{% for key, value in DateYearCounter.items %}
+			<li>
+				{{key}}:
+				{{value}} 
+			</li>
+		{% endfor%}
+		<hr>
+		{% for key, value in DateMonthCounter.items %}
+			<li>
+				{{key}}:
+				{{value}} 
+			</li>
+		{% endfor%}
+		<hr>
+		{% for key, value in DateWeekCounter.items %}
+			<li>
+				Week {{key}}:
+				{{value}} 
+			</li>
+		{% endfor%}
+		<hr>
+
+		{% for key, value in DateCounter.items %}
+			<li>
+				{{key}}:
+				{{value}} 
+			</li>
+		{% endfor%}
+
+		<hr>
+		<p>Count based on Last Date of Action</p>
+
+		{% for key, value in DateActionYearCounter.items %}
+			<li>
+				{{key}}:
+				{{value}} 
+			</li>
+		{% endfor%}
+		<hr>
+		{% for key, value in DateActionMonthCounter.items %}
+			<li>
+				{{key}}:
+				{{value}} 
+			</li>
+		{% endfor%}
+		<hr>
+		{% for key, value in DateActionWeekCounter.items %}
+			<li>
+				Week # {{key}}:
+				{{value}} 
+			</li>
+		{% endfor%}
+		<hr>
+
+		{% for key, value in DateActionCounter.items %}
+			<li>
+				{{key}}:
+				{{value}} 
+			</li>
+		{% endfor%}
+
+		<hr>
+		<p>Count based on Item</p>
+		{% for key, value in ItemCounter.items %}
+			<li>
+				{{key}}:
+				{{value}} 
+			</li>
+		{% endfor%}
+		<hr>
+		<p>Count based on Status</p>
+		{% for key, value in StatusCounter.items %}
+			<li>
+				{{key}}:
+				{{value}} 
+			</li>
+		{% endfor%}
+
+		<hr>
+		<p> Detail Processing Time</p>
+		{% for key, value in TestingTimeCount.items %}
+			<li>
+				{{key}}:
+				<ul>
+					<li>
+						{{value}} 
+					</li>
+				</ul>
+			</li>
+		{% endfor%}
+
+	<hr>
+	<strong>Download as Excel File</strong>
+	<hr>
+	<h2>Upload Testing Background Information</h2>
+	<hr>
+	<strong>Upload an Excel File</strong>
+	<hr>
+	<a href="/logout/"> Logout </a>
+</body>
+</html>

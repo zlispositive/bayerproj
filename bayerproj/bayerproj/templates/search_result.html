@@ -1,0 +1,15 @@
+<p> You searched for: <strong> {{ query}} </strong></p>
+
+{% if tas %}
+	<p>Found {{ tas|length }} testing activity{{ activities|pluralize }}. </p>
+	<ul>
+		{% for ta in tas %}
+		<li> {{ ta.bu }} </li>
+		<li>{{ ta.testing_name }}</li>
+		<li>{{ ta.type }}</li>
+		
+		{% endfor%}
+	</ul>
+{% else %}
+	<p>No testing activies matched your search critieria</p>
+{% endif %}

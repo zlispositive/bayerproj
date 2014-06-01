@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Request Information</title>
+</head>
+<body>
+	<h2>Request Informaiton </h2>
+	<ul>
+		<li>{{RequestInfo.pk}}: {{RequestInfo.requester}} @ {{RequestInfo.date}} </li>
+		<li>{{RequestInfo.status}} @ {{RequestInfo.date_action}} </li>
+		<li>Testing Item{{RequestInfo.item.all|pluralize}} : </li>
+			<ul>
+				{%for rq in RequestInfo.item.all %}
+					<li>
+					{{rq}}
+					</li>
+				{% endfor %}
+			</ul>
+		<li>
+			Email: {{RequestInfo.email}}
+		</li>
+		<li>
+			Comment: {{RequestInfo.comment}}			
+		</li>
+	</ul>
+	<hr>
+	<a href="/index/tgstaff/"> Return </a>
+</body>
+</html>
